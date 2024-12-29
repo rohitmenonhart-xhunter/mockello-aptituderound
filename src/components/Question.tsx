@@ -11,7 +11,11 @@ interface QuestionProps {
 export const Question: React.FC<QuestionProps> = ({ question, onAnswer, onTimeUp }) => {
   return (
     <div className="max-w-2xl mx-auto p-6">
-      <Timer duration={question.timeLimit} onTimeUp={onTimeUp} />
+      <Timer 
+        duration={question.timeLimit} 
+        onTimeUp={onTimeUp}
+        label="Time Remaining"
+      />
       
       <div className="bg-white rounded-lg shadow-lg p-6">
         <div className="mb-4">
@@ -22,17 +26,19 @@ export const Question: React.FC<QuestionProps> = ({ question, onAnswer, onTimeUp
         
         <h2 className="text-xl font-semibold mb-6">{question.question}</h2>
         
-        <div className="space-y-4">
-          {question.options.map((option, index) => (
-            <button
-              key={index}
-              onClick={() => onAnswer(option)}
-              className="w-full text-left p-4 rounded border border-gray-200 hover:bg-gray-50 transition-colors"
-            >
-              {option}
-            </button>
-          ))}
-        </div>
+        {question.options && (
+          <div className="space-y-4 mt-6">
+            {question.options.map((option, index) => (
+              <button
+                key={index}
+                onClick={() => onAnswer(option)}
+                className="w-full text-left p-4 rounded border border-gray-200 hover:bg-gray-50 transition-colors"
+              >
+                {option}
+              </button>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
