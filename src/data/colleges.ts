@@ -2,8 +2,8 @@ import { College } from '../types/user';
 
 export const colleges: College[] = [
   {
-    id: 'svce',
-    name: 'Sri Venkateswara College of Engineering',
+    id: 'default',
+    name: 'default',
     apiKey: "AIzaSyCuWTdQuHs_l6rvfzaxvY4y-Uzn0EARRwM",
     authDomain: "athentication-3c73e.firebaseapp.com", 
     databaseUrl: "https://athentication-3c73e-default-rtdb.firebaseio.com",
